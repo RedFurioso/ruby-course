@@ -1,0 +1,28 @@
+class Person
+  attr_accessor :first_name, :last_name, :birthday
+
+  def initialize
+  end
+end
+
+class Employee < Person
+  attr_accessor :salary
+
+  def initialize
+  end
+
+  def to_s
+    "Employee: #{@first_name} #{@last_name} with salary: #{@salary}"
+  end
+end
+
+class Manager < Employee
+  attr_accessor :bonus
+
+  def initialize
+  end
+
+  def to_s
+    "Manager: #{@first_name} #{@last_name} with salary: #{@salary.to_i + @bonus.to_i}"
+  end
+end
