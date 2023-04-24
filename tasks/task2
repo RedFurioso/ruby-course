@@ -23,6 +23,6 @@ class Manager < Employee
   end
 
   def to_s
-    "Manager: #{@first_name} #{@last_name} with salary: #{@salary.to_i + @bonus.to_i}"
+    "Manager: #{@first_name} #{@last_name} with salary: #{@salary + @bonus}"
   end
 end
