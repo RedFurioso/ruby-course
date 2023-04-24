@@ -1,14 +1,17 @@
 class Person
-  attr_accessor :first_name, :last_name, :birthday
 
-  def initialize
+  def initialize(first_name, last_name, birthday)
+    @first_name = first_name
+    @last_name = last_name
+    @birthday = birthday
   end
 end
 
 class Employee < Person
-  attr_accessor :salary
 
-  def initialize
+  def initialize(first_name, last_name, birthday, salary)
+    super(first_name, last_name, birthday)
+    @salary = salary
   end
 
   def to_s
@@ -17,12 +20,11 @@ class Employee < Person
 end
 
 class Manager < Employee
-  attr_accessor :bonus
 
-  def initialize
+  def initialize(first_name, last_name, birthday, salary, bonus=0)
+    super(first_name, last_name, birthday, salary)
+    @bonus = bonus
+    @salary += bonus
   end
 
-  def to_s
-    "Manager: #{@first_name} #{@last_name} with salary: #{@salary + @bonus}"
-  end
 end
