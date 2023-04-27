@@ -1,35 +1,29 @@
 class C3DFigure
 
-  def initialize
-    puts "Введіть 1, якщо фігура - паралелепіпед (куб). Введіть 2, якщо фігура - циліндр."
-    @type = gets.strip.to_i
-  end
-
-  def area
-    @type == 1 ? square_area : circle_area
-  end
-
-  def square_area
-    puts "Введіть довжину і ширину прямокутника:"
-    @length = gets.strip.to_f
-    @width = gets.strip.to_f
-    @area = @length * @width
-  end
-
-  def circle_area
-    puts "Введіть радіус кола:"
-    @r = gets.strip.to_f
-    @area = Math::PI * (@r ** 2)
+  def initialize(height)
+    @height = height
   end
 
   def volume
-    puts "Введіть висоту фігури:"
-    @height = gets.strip.to_f
-    @volume = @area * @height
+    @vol = @area * @height
   end
+end
 
-  def to_s
-    "Об'єм фігури дорівнює #{@volume}"
+class Rectangle < C3DFigure
+
+  def initialize(length, width, height)
+    super(height)
+    @length = length
+    @width = width
+    @area = @length * @width
   end
+end
 
+class Circle < C3DFigure
+
+  def initialize(radius, height)
+    super(height)
+    @radius = radius
+    @area = Math::PI * (@radius ** 2)
+  end
 end
