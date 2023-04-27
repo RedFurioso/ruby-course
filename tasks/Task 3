@@ -1,29 +1,34 @@
 class C3DFigure
-
-  def initialize(height)
+ 
+  def initialize(area, height)
     @height = height
+    @area = area
   end
-
+ 
   def volume
-    @vol = @area * @height
+    @volume = @area * @height
   end
 end
 
-class Rectangle < C3DFigure
+class Rectangle
 
-  def initialize(length, width, height)
-    super(height)
+  def initialize(length, width)
     @length = length
     @width = width
+  end
+
+  def area
     @area = @length * @width
   end
 end
 
-class Circle < C3DFigure
+class Circle
 
-  def initialize(radius, height)
-    super(height)
+  def initialize(radius)
     @radius = radius
+  end
+
+  def area
     @area = Math::PI * (@radius ** 2)
   end
 end
