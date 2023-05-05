@@ -10,7 +10,7 @@ class StudentGroup
   def add_student(student)
     raise "Error! Student with id #{student.id} was added already." if is_student_present?(student)
     @members << student
-end
+  end
 
   def is_student_present?(student)
     @members.find { |existing| existing.id == student.id }
