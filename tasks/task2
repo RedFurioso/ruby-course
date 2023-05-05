@@ -1,0 +1,51 @@
+#first solution:
+
+class Person
+  def initialize(first_name, last_name, birthday)
+    @first_name = first_name
+    @last_name = last_name
+    @birthday = birthday
+  end
+end
+
+class Employee < Person
+  def initialize(first_name, last_name, birthday, salary)
+    super(first_name, last_name, birthday)
+    @salary = salary
+  end
+
+  def to_s
+    "Employee: #{@first_name} #{@last_name} with salary: #{@salary}"
+  end
+end
+
+class Manager < Employee
+  def initialize(first_name, last_name, birthday, salary, bonus=0)
+    super(first_name, last_name, birthday, salary)
+    @bonus = bonus
+    @salary += bonus
+  end
+end
+
+
+# second solution:
+
+class Person
+  attr_accessor :first_name, :last_name, :birthday
+end
+
+class Employee < Person
+  attr_accessor :salary
+
+  def to_s
+    "Employee: #{@first_name} #{@last_name} with salary: #{salary}"
+  end
+end
+
+class Manager < Employee
+  attr_accessor :bonus
+
+  def salary
+    @salary + @bonus
+  end
+end
